@@ -48,7 +48,7 @@ export class GeminiSentimentService {
     this.apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || null
   }
 
-  async analyzeSentiment(text: string, model = "gemini-2.0-flash-exp"): Promise<SentimentAnalysis> {
+  async analyzeSentiment(text: string, model = "gemini-2.0-flash"): Promise<SentimentAnalysis> {
     if (!this.apiKey) {
       throw new Error("Gemini API key not found. Please set NEXT_PUBLIC_GEMINI_API_KEY environment variable.")
     }
