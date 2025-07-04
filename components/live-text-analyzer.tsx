@@ -19,7 +19,7 @@ export function LiveTextAnalyzer({ isActive, provider = "gemini" }: LiveTextAnal
   const [result, setResult] = useState<any>(null)
   const [error, setError] = useState<string | null>(null)
   const [analysisTime, setAnalysisTime] = useState<number>(0)
-  const { addEntry } = useSentimentStore()
+  // const { addEntry } = useSentimentStore()
 
   // Debounced analysis
   const analyzeText = useCallback(
@@ -53,16 +53,16 @@ export function LiveTextAnalyzer({ isActive, provider = "gemini" }: LiveTextAnal
 
         setResult(analysisResult)
         setAnalysisTime(endTime - startTime)
-
+      
         // Add to unified store for real-time updates
-        addEntry({
-          text: inputText,
-          sentiment: analysis.overall.sentiment,
-          score: analysis.overall.score,
-          confidence: analysis.overall.confidence,
-          source: "live",
-          model: provider,
-        })
+  //       addEntry({
+  //         text: inputText,
+  //         sentiment: analysis.overall.sentiment,
+  //         score: analysis.overall.score,
+  //         confidence: analysis.overall.confidence,
+  //         source: "live",
+  //         model: provider,
+  //       })
       } catch (err) {
         setError(err instanceof Error ? err.message : "Analysis failed")
         setResult(null)
@@ -70,7 +70,7 @@ export function LiveTextAnalyzer({ isActive, provider = "gemini" }: LiveTextAnal
         setIsAnalyzing(false)
       }
     },
-    [isActive, provider, addEntry],
+    [isActive, provider, geminiService] // Ensure geminiService is included in dependencies,
   )
 
   // Debounce text input
