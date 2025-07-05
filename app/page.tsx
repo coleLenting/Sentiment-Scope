@@ -332,9 +332,6 @@ export default function MoodMapDashboard() {
 
               {/* Sample Texts */}
               <SampleTexts onSelectText={handleSampleSelect} />
-
-              {/* Sample Texts */}
-              <SampleTexts onSelectText={handleSampleSelect} />
             </div>
 
             {/* Sidebar */}
