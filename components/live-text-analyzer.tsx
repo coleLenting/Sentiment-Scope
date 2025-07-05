@@ -269,7 +269,6 @@ export function LiveTextAnalyzer({ isActive, provider = "gemini" }: LiveTextAnal
               <li>• Analysis happens automatically as you type</li>
               <li>• Results update in real-time with sentiment scores</li>
               <li>• All analyses are automatically added to the Timeline</li>
-              <li>• Live Sentiment Feed updates instantly</li>
             </ul>
           </div>
         )}
