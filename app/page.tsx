@@ -145,6 +145,16 @@ export default function MoodMapDashboard() {
         model: selectedModel,
       })
 
+      // ADD THIS: Save to AnalysisHistory (localStorage)
+      if (typeof window !== "undefined" && (window as any).addToSentimentHistory) {
+        (window as any).addToSentimentHistory({
+          text: text,
+          sentiment: analysis.overall.sentiment,
+          score: analysis.overall.score,
+          confidence: analysis.overall.confidence,
+        })
+      }
+
       toast({
         title: "Analysis complete!",
         description: `Sentiment analyzed in ${processingTime}ms with ${(analysis.overall.confidence * 100).toFixed(1)}% confidence`,
